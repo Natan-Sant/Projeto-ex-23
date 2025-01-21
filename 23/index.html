@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos no JavaScript - Diferentes Interações</title>
+<style>
+    /* Estiliza o botão centralizando-o na página */
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    }
+    button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<button>Interaja Comigo!</button>
+
+<script>
+    let btn = document.querySelector("button");
+
+    // Função que retorna um número aleatório entre 0 e o valor especificado
+    function random(number) {
+    return Math.floor(Math.random() * (number + 1));
+    }
+
+    // Função para alterar a cor de fundo
+    function changeBackgroundColor() {
+    let rndCol = "rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
+    document.body.style.backgroundColor = rndCol;
+    }
+
+    // Evento ao focar no botão
+    btn.onfocus = function() {
+    console.log('O botão está em foco');
+    changeBackgroundColor();
+    };
+
+    // Evento ao desclicar o botão
+    btn.onblur = function() {
+    console.log('O botão perdeu o foco');
+    changeBackgroundColor();
+    };
+
+    // Evento ao dar um duplo clique no botão
+    btn.ondblclick = function() {
+    console.log('Botão clicado duas vezes');
+    changeBackgroundColor();
+    };
+
+    // Evento ao pressionar uma tecla (em qualquer lugar da janela)
+    window.onkeypress = function(event) {
+    console.log('Tecla pressionada:', event.key);
+    changeBackgroundColor();
+    };
+
+    // Evento ao passar o mouse sobre o botão
+    btn.onmouseover = function() {
+    console.log('Mouse sobre o botão');
+    changeBackgroundColor();
+    };
+</script>
+</body>
+</html>
